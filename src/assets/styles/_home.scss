@@ -1,0 +1,107 @@
+@use "./variables" as *;
+@use "./mixin" as *;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.home-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero {
+  @include card;
+  padding: 48px;
+  background: linear-gradient(135deg, #ede9fe 0%, #ffffff 100%);
+}
+
+.hero__eyebrow {
+  margin-bottom: 12px;
+  color: $color-primary;
+  font-weight: 700;
+}
+
+.hero__title {
+  margin-bottom: 12px;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero__desc {
+  max-width: 720px;
+  color: $color-text-secondary;
+  font-size: 18px;
+}
+
+.notice-banner {
+  @include card;
+  padding: 20px 24px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card-item {
+  @include card;
+  @include hover-lift;
+  display: block;
+  padding: 24px;
+}
+
+.card-item__category {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: $color-primary-soft;
+  color: $color-primary;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.card-item__title {
+  margin-bottom: 12px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.card-item__desc {
+  margin-bottom: 16px;
+  color: $color-text-secondary;
+}
+
+.card-item__date {
+  font-size: 14px;
+  color: $color-text-muted;
+}
+
+@include mobile {
+  .hero {
+    padding: 32px 24px;
+  }
+
+  .hero__title {
+    font-size: 34px;
+  }
+
+  .hero__desc {
+    font-size: 16px;
+  }
+
+  .card-list {
+    grid-template-columns: 1fr;
+  }
+}

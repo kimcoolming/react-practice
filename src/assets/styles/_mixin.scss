@@ -1,0 +1,46 @@
+@use "./variables" as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin inner {
+  width: 100%;
+  max-width: $inner-width;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@mixin card {
+  background: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+}
+
+@mixin hover-lift {
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}

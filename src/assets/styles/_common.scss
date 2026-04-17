@@ -1,0 +1,42 @@
+@use "./variables" as *;
+@use "./mixin" as *;
+
+body {
+  background: $color-bg;
+  color: $color-text;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+}
+
+.inner {
+  @include inner;
+}
+
+.section {
+  padding: 48px 0;
+}
+
+.page-title {
+  margin-bottom: 24px;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.page-box {
+  @include card;
+  padding: 32px;
+}
+
+.blind {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
