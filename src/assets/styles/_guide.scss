@@ -1,23 +1,118 @@
+@use "./variables" as *;
 @use "./mixin" as *;
 
-.guide__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+.guide {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
-.guide-card {
+.guide-summary {
+  @include card;
+  padding: 24px;
+  color: $color-text-secondary;
+}
+
+.guide__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.guide-section {
   @include card;
   padding: 24px;
 }
 
-.guide-card h3 {
-  margin-bottom: 12px;
-  font-size: 20px;
+.guide-section__title {
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: 800;
 }
 
-@include mobile {
-  .guide__grid {
-    grid-template-columns: 1fr;
-  }
+.guide-section__desc {
+  margin-bottom: 16px;
+  color: $color-text-secondary;
+}
+
+.guide-code {
+  margin-bottom: 16px;
+  padding: 16px;
+  background: #111827;
+  color: #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.guide-point {
+  padding-left: 18px;
+  list-style: disc;
+  color: $color-text-secondary;
+}
+
+.guide-point li + li {
+  margin-top: 8px;
+}
+
+.guide-filter {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.guide-filter button {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid $color-border;
+  background: $color-white;
+  color: $color-text-secondary;
+  transition: $transition-base;
+}
+
+.guide-filter button.active {
+  background: $color-primary-soft;
+  color: $color-primary;
+  font-weight: 700;
+  border-color: $color-primary-soft;
+}
+
+// tree
+.guide-summary {
+  @include card;
+  padding: 24px;
+  color: $color-text-secondary;
+}
+.guide-structure {
+  @include card;
+  padding: 24px;
+}
+
+.guide-subtitle {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.guide-structure__desc {
+  margin-bottom: 16px;
+  color: $color-text-secondary;
+}
+
+.file-tree {
+  padding: 20px;
+  border-radius: 16px;
+  background: #111827;
+  overflow-x: auto;
+}
+
+.file-tree pre {
+  margin: 0;
+  color: #e5e7eb;
+  font-size: 14px;
+  line-height: 1.7;
+  font-family: Consolas, Monaco, monospace;
+  white-space: pre;
 }

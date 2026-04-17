@@ -1,3 +1,6 @@
+import Tabs from "../components/common/Tabs";
+import Modal from "../components/common/Modal";
+
 function ComponentsPage() {
   return (
     <section className="components-page">
@@ -5,23 +8,25 @@ function ComponentsPage() {
 
       <div className="components-page__grid">
         <article className="component-box">
-          <h3>Card</h3>
-          <p>목록 UI와 상세 페이지 이동 실습용 카드.</p>
-        </article>
-
-        <article className="component-box">
           <h3>Tabs</h3>
-          <p>state로 탭 상태를 바꾸는 연습용 컴포넌트.</p>
+          <p>useState로 현재 탭 상태를 바꾸는 연습</p>
+          <Tabs />
         </article>
 
         <article className="component-box">
           <h3>Modal</h3>
-          <p>열기/닫기 흐름을 익히는 기본 모달 구조.</p>
+          <p>버튼 클릭으로 열고 닫는 상태 제어 연습</p>
+          <Modal />
+        </article>
+
+        <article className="component-box">
+          <h3>Card</h3>
+          <p>목록형 UI와 상세 페이지 이동 구조 연습</p>
         </article>
 
         <article className="component-box">
           <h3>Banner</h3>
-          <p>상단 알림 영역과 재사용 섹션 UI.</p>
+          <p>재사용 가능한 안내 영역과 섹션 구분 UI</p>
         </article>
       </div>
     </section>

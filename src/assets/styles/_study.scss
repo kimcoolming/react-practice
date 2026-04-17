@@ -1,0 +1,34 @@
+@use "./variables" as *;
+@use "./mixin" as *;
+
+.study {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.study__desc {
+  color: $color-text-secondary;
+  font-size: 16px;
+}
+.study-filter {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.study-filter button {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid $color-border;
+  background: $color-white;
+  color: $color-text-secondary;
+  transition: $transition-base;
+}
+
+.study-filter button.active {
+  background: $color-primary-soft;
+  color: $color-primary;
+  font-weight: 700;
+  border-color: $color-primary-soft;
+}

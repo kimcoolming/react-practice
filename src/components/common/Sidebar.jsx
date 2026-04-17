@@ -16,6 +16,9 @@ function Sidebar() {
           <NavLink to="/components" className={({ isActive }) => (isActive ? "active" : "")}>
             Components
           </NavLink>
+          <NavLink to="/study" className={({ isActive }) => (isActive ? "active" : "")}>
+            Study
+          </NavLink>
           <NavLink to="/contact" className={({ isActive }) => (isActive ? "active" : "")}>
             Contact
           </NavLink>

@@ -21,7 +21,6 @@
 
 /* header */
 .header {
-  height: $header-height;
   background: $color-white;
   border-bottom: 1px solid $color-border;
   position: sticky;
@@ -31,7 +30,7 @@
 
 .header__inner {
   @include inner;
-  height: 100%;
+  height: $header-height;
   @include flex-between;
 }
 
@@ -53,7 +52,6 @@
 }
 
 .header__nav a {
-  position: relative;
   font-size: 16px;
   font-weight: 500;
   color: $color-text-secondary;
@@ -65,6 +63,74 @@
 }
 
 .header__nav a.active {
+  color: $color-primary;
+  font-weight: 700;
+}
+
+/* mobile toggle */
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid $color-border;
+  background: $color-white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: $color-text;
+  border-radius: 999px;
+  transition: $transition-base;
+}
+
+.menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-menu {
+  display: none;
+  border-top: 1px solid $color-border;
+  background: $color-white;
+}
+
+.mobile-menu__inner {
+  @include inner;
+  display: flex;
+  flex-direction: column;
+  padding-top: 12px;
+  padding-bottom: 16px;
+  gap: 10px;
+}
+
+.mobile-menu__inner a {
+  display: block;
+  padding: 12px 14px;
+  border-radius: $radius-sm;
+  color: $color-text-secondary;
+  transition: $transition-base;
+}
+
+.mobile-menu__inner a:hover {
+  background: #f3f4f6;
+}
+
+.mobile-menu__inner a.active {
+  background: $color-primary-soft;
   color: $color-primary;
   font-weight: 700;
 }
@@ -149,17 +215,8 @@
 }
 
 @include mobile {
-  .header {
-    height: auto;
-    padding: 16px 0;
-  }
-
   .header__inner {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 14px;
-    height: auto;
+    height: $header-height;
   }
 
   .header__logo {
@@ -167,13 +224,15 @@
   }
 
   .header__nav {
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 12px 16px;
+    display: none;
   }
 
-  .header__nav a {
-    font-size: 14px;
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .mobile-menu {
+    display: block;
   }
 
   .layout__main {
