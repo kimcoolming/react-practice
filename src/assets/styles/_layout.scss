@@ -24,6 +24,9 @@
   height: $header-height;
   background: $color-white;
   border-bottom: 1px solid $color-border;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header__inner {
@@ -39,6 +42,10 @@
   line-height: 1;
 }
 
+.header__logo a {
+  display: inline-block;
+}
+
 .header__nav {
   display: flex;
   align-items: center;
@@ -46,13 +53,20 @@
 }
 
 .header__nav a {
+  position: relative;
   font-size: 16px;
+  font-weight: 500;
   color: $color-text-secondary;
   transition: $transition-base;
 }
 
 .header__nav a:hover {
   color: $color-text;
+}
+
+.header__nav a.active {
+  color: $color-primary;
+  font-weight: 700;
 }
 
 /* sidebar */
@@ -66,7 +80,7 @@
 .sidebar__inner {
   padding: 32px 20px;
   position: sticky;
-  top: 0;
+  top: calc(#{$header-height} + 12px);
 }
 
 .sidebar__title {
@@ -121,43 +135,45 @@
 
 /* responsive */
 @include tablet {
-  .layout__body {
-    flex-direction: column;
-  }
-
   .sidebar {
-    width: 100%;
-    border-right: 0;
-    border-bottom: 1px solid $color-border;
+    display: none;
   }
 
-  .sidebar__inner {
-    position: static;
-    padding: 20px 24px;
+  .layout__body {
+    display: block;
   }
 
-  .sidebar__nav {
-    flex-direction: row;
-    flex-wrap: wrap;
+  .layout__main {
+    padding: 40px 0 64px;
   }
 }
 
 @include mobile {
   .header {
     height: auto;
-    padding: 18px 0;
+    padding: 16px 0;
   }
 
   .header__inner {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    justify-content: flex-start;
+    gap: 14px;
     height: auto;
   }
 
+  .header__logo {
+    font-size: 22px;
+  }
+
   .header__nav {
+    width: 100%;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px 16px;
+  }
+
+  .header__nav a {
+    font-size: 14px;
   }
 
   .layout__main {
@@ -166,5 +182,14 @@
 
   .page-title {
     font-size: 28px;
+  }
+
+  .footer__inner {
+    justify-content: center;
+  }
+
+  .footer p {
+    text-align: center;
+    font-size: 13px;
   }
 }
